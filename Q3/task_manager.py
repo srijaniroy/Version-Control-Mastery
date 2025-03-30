@@ -1,3 +1,29 @@
+"""
+Task Management CLI Tool
+
+Description:
+This is a command-line interface (CLI) tool for managing tasks. It allows users to:
+- Add, edit, and remove tasks
+- Mark tasks as completed or pending
+- View all tasks, pending tasks, completed tasks, and task history
+- Track task changes with version control using task history
+
+Features:
+- Task tracking: Users can add tasks, edit their descriptions, and mark them as completed.
+- Version control: Changes to tasks are logged in a task history table to provide a version-controlled history of task actions (Added, Edited, Completed).
+- Database: SQLite is used to store tasks, completed tasks, pending tasks, and task history.
+- Task status: Tasks can be viewed in three categories: all tasks, pending tasks, and completed tasks.
+
+Database Schema:
+1. tasks: Stores task ID, description, completion status, and timestamp.
+2. pending_tasks: Stores tasks that are not completed.
+3. completed_tasks: Stores tasks that are marked as completed.
+4. task_history: Tracks changes made to tasks (add, edit, complete) with timestamps.
+
+Usage:
+- The user interacts with the program through a menu interface to perform task management operations.
+"""
+
 import sqlite3
 import time
 
