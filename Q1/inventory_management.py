@@ -1,48 +1,5 @@
 import sqlite3
 from prettytable import PrettyTable
-# Connect to SQLite database
-conn = sqlite3.connect("inventory_management.db")
-cursor = conn.cursor()
-
-# Create Tables if not exists
-cursor.execute('''
-CREATE TABLE IF NOT EXISTS products (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    price REAL NOT NULL,
-    stock INTEGER NOT NULL
-)''')
-
-cursor.execute('''
-CREATE TABLE IF NOT EXISTS purchases (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    customer_name TEXT NOT NULL,
-    product_id INTEGER,
-    quantity INTEGER,
-    total_price REAL,
-    purchase_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (product_id) REFERENCES products(id)
-)''')
-
-# Insert Sample Data into Products
-cursor.execute("INSERT INTO products (name, price, stock) VALUES ('Laptop', 50000.00, 10)")
-cursor.execute("INSERT INTO products (name, price, stock) VALUES ('Smartphone', 30000.00, 20)")
-cursor.execute("INSERT INTO products (name, price, stock) VALUES ('Headphones', 1500.00, 50)")
-
-conn.commit()
-print("Database initialized with sample data.")
-
-# Display Products to Verify
-cursor.execute("SELECT * FROM products")
-products = cursor.fetchall()
-print("\nProducts in the Database:")
-for product in products:
-    print(product)
-
-# Close Connection
-conn.close()
-
-
 
 # Database Connection
 conn = sqlite3.connect("inventory_management.db")
@@ -118,7 +75,7 @@ def purchase_product():
 
     if product and product[2] >= quantity:
         total_price = product[1] * quantity
-        cursor.execute("INSERT INTO purchases (customer_name, product_id, quantity, total_price) VALUES (?, ?, ?, ?)", 
+        cursor.execute("INSERT INTO purchases (customer_name, product_id, quantity, total_price) VALUES (?, ?, ?, ?)",
                       (customer_name, prod_id, quantity, total_price))
         cursor.execute("UPDATE products SET stock = stock - ? WHERE id = ?", (quantity, prod_id))
         conn.commit()
