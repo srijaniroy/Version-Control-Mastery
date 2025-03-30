@@ -2,18 +2,18 @@
 ## SE Assignment on Version Control using Git
 
 ### Contributors:
-- **Srijani**: Contributed to Q3 (Entirely) and provided 10 data entries for both Q1 and Q2.  
-  GitHub: [Srijani](https://github.com/srijaniroy)
-- **Sayak**: Contributed to Q2.  
-  GitHub: [Sayak](https://github.com/Sayak-77-sys)
-- **Manav**: Contributed to Q1.  
-  GitHub: [Manav](https://github.com/Lord-Crow)
+- **[Srijani](https://github.com/srijaniroy)**: Contributed to Q3 (Entirely) and provided 10 data entries for Q1, Q2, and Q3.
+
+- **[Sayak](https://github.com/Sayak-77-sys)**: Contributed to Q2.  
+  
+- **[Manav](https://github.com/Lord-Crow)**: Contributed to Q1.  
+  
 
 
 
 ### Question-wise Breakdown:
 
-#### **Q1: Inventory Management System with Git (Manav)**
+#### **Q1: Inventory Management System with Git ([Manav](https://github.com/Lord-Crow))**
 - **Objective**: Design a system to manage products for a store. Customers can make purchases, and sellers can update the list of products.
 - **Features**:
   - Added, updated, and deleted products using SQLite.
@@ -22,7 +22,7 @@
   - Purchase history is tracked for customers.
 - **Git usage**: Version control was used to maintain a history of changes to the inventory and purchase system.
   
-#### **Q2: Marks Management System with Git (Sayak)**
+#### **Q2: Marks Management System with Git ([Sayak](https://github.com/Sayak-77-sys))**
 - **Objective**: Develop a Student Marks Management System where a central database stores students' marks for different subjects.
 - **Features**:
   - Teachers can add, edit, and update marks for individual students in their subject.
@@ -30,7 +30,7 @@
   - After all updates by teachers, the database is sorted by total marks and made available for students.
 - **Git usage**: Git was used for version control to track updates by different teachers and ensure the integrity of the marks data.
   
-#### **Q3: Task Management CLI Tool (Srijani)**
+#### **Q3: Task Management CLI Tool ([Srijani](https://github.com/srijaniroy))**
 - **Objective**: Develop a command-line task management tool where users can add, edit, and complete tasks.
 - **Features**:
   - Tasks can be added, edited, marked as complete, and deleted.
