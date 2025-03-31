@@ -6,7 +6,7 @@
 
 - **[Sayak](https://github.com/Sayak-77-sys)**: Contributed to Q2.  
   
-- **[Manav](https://github.com/Lord-Crow)**: Contributed to Q1.  
+- **[Manav](https://github.com/Lord-Crow)**: Contributed to Q1 and provided 10 data entries for Q1, Q2 and Q3.  
   
 
 
