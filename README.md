@@ -30,7 +30,7 @@
   - After all updates by teachers, the database is sorted by total marks and made available for students.
 - **Git usage**: Git was used for version control to track updates by different teachers and ensure the integrity of the marks data.
   
-#### **Q3: Task Management CLI Tool ([Srijani](https://github.com/srijaniroy))**
+#### **Q3: Task Management CLI Tool with Git ([Srijani](https://github.com/srijaniroy))**
 - **Objective**: Develop a command-line task management tool where users can add, edit, and complete tasks.
 - **Features**:
   - Tasks can be added, edited, marked as complete, and deleted.
