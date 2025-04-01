@@ -4,7 +4,7 @@
 ### Contributors:
 - **[Srijani](https://github.com/srijaniroy)**: Contributed to Q3 (Entirely) and provided 10 data entries for Q1, Q2, and Q3.
 
-- **[Sayak](https://github.com/Sayak-77-sys)**: Contributed to Q2.  
+- **[Sayak](https://github.com/Sayak-77-sys)**: Contributed to Q2 and provided 10 data entries for Q1, Q2 and Q3.  
   
 - **[Manav](https://github.com/Lord-Crow)**: Contributed to Q1 and provided 10 data entries for Q1, Q2 and Q3.  
   
@@ -51,7 +51,7 @@
 1. **Clone the repository**:  
    Run the following command in your terminal or command prompt to clone the project repository:
    ```bash
-   git clone https://github.com/srijaniroy/SE_Lab_2025_A1_5.git
+   git clone https://github.com/srijaniroy/SE_Lab_2025_A1_5_Repo.git
    ```
    
 
