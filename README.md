@@ -51,7 +51,7 @@
 1. **Clone the repository**:  
    Run the following command in your terminal or command prompt to clone the project repository:
    ```bash
-   git clone https://github.com/srijaniroy/SE_Lab_2025_A1_5.git
+   git clone https://github.com/srijaniroy/SE_Lab_2025_A1_5_Repo.git
    ```
    
 
