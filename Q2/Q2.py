@@ -1,138 +1,147 @@
 import sqlite3
 
-class MarksManagementSystem:
-    def __init__(self, db_name='marks_management.db'):
-        self.db_name = db_name
-        self.connection = sqlite3.connect(self.db_name)
-        self.cursor = self.connection.cursor()
-       
-        # Initialize the database tables if they don't exist
-        self.initialize_database()
-       
-    def initialize_database(self):
-        """Initialize the database and tables if they don't exist."""
-        # Create the students table
-        self.cursor.execute('''
+def initialize_database():
+    conn = sqlite3.connect('marks.db')
+    cursor = conn.cursor()
+    
+    cursor.execute("""
         CREATE TABLE IF NOT EXISTS students (
-            roll_no INTEGER PRIMARY KEY,
-            name TEXT NOT NULL,
-            math INTEGER DEFAULT 0,
-            science INTEGER DEFAULT 0,
-            english INTEGER DEFAULT 0,
-            total INTEGER DEFAULT 0
+            roll_number INTEGER PRIMARY KEY,
+            name TEXT NOT NULL
         )
-        ''')
-       
-        # Insert some initial dummy student data if the table is empty
-        self.cursor.execute("SELECT COUNT(*) FROM students")
-        if self.cursor.fetchone()[0] == 0:
-            self.cursor.executemany('''
-            INSERT INTO students (roll_no, name) VALUES (?, ?)
-            ''', [
-                (1, 'Alice'),
-                (2, 'Bob'),
-                (3, 'Charlie')
-            ])
-            self.connection.commit()
+    """)
+    
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS subjects (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL
+        )
+    """)
+    
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS marks (
+            student_id INTEGER,
+            subject_id INTEGER,
+            marks INTEGER,
+            PRIMARY KEY (student_id, subject_id),
+            FOREIGN KEY (student_id) REFERENCES students (roll_number),
+            FOREIGN KEY (subject_id) REFERENCES subjects (id)
+        )
+    """)
+    
+    conn.commit()
+    conn.close()
 
-    def update_marks(self, subject, roll_no, marks):
-        """Update marks for a subject."""
-        if subject not in ['math', 'science', 'english']:
-            print("Invalid subject!")
-            return
-       
-        query = f"UPDATE students SET {subject} = ? WHERE roll_no = ?"
-        self.cursor.execute(query, (marks, roll_no))
-       
-        # Recalculate total marks
-        self.cursor.execute('''
-        UPDATE students
-        SET total = math + science + english
-        WHERE roll_no = ?
-        ''', (roll_no,))
-       
-        self.connection.commit()
+def add_student():
+    conn = sqlite3.connect('marks.db')
+    cursor = conn.cursor()
+    
+    roll_number = input("Enter Roll Number: ")
+    name = input("Enter Student Name: ")
+    
+    cursor.execute("INSERT INTO students (roll_number, name) VALUES (?, ?)", (roll_number, name))
+    conn.commit()
+    
+    print(f"Student {name} added successfully!")
+    conn.close()
 
-    def view_results(self):
-        """View sorted results based on total marks."""
-        self.cursor.execute('''
-        SELECT roll_no, name, math, science, english, total
-        FROM students
-        ORDER BY total DESC
-        ''')
+def add_subject():
+    conn = sqlite3.connect('marks.db')
+    cursor = conn.cursor()
+    
+    subject_name = input("Enter Subject Name: ")
+    cursor.execute("INSERT INTO subjects (name) VALUES (?)", (subject_name,))
+    conn.commit()
+    
+    print(f"Subject {subject_name} added successfully!")
+    conn.close()
 
-        rows = self.cursor.fetchall()
-        print("Roll No | Name    | Math | Science | English | Total")
-        print("-" * 50)
-        for row in rows:
-            print(f"{row[0]:7} | {row[1]:7} | {row[2]:4} | {row[3]:7} | {row[4]:7} | {row[5]:5}")
-   
-    def teacher_update(self):
-        """Allow teachers to update marks."""
-        print("\n--- Teacher Menu ---")
-        subject = input("Enter subject (math/science/english): ").lower()
-        roll_no = int(input("Enter student roll number: "))
-        marks = int(input(f"Enter marks for {subject}: "))
-       
-        self.update_marks(subject, roll_no, marks)
-        print(f"Marks for {subject} updated successfully.")
+def add_or_update_marks():
+    conn = sqlite3.connect('marks.db')
+    cursor = conn.cursor()
+    
+    roll = input("Enter Student Roll Number: ")
+    subject_input = input("Enter Subject Name or ID: ")
+    
+    # Check if the input is numeric or a subject name
+    if subject_input.isnumeric():
+        cursor.execute("SELECT id FROM subjects WHERE id = ?", (subject_input,))
+    else:
+        cursor.execute("SELECT id FROM subjects WHERE name = ?", (subject_input,))
+    
+    subject_row = cursor.fetchone()
+    if not subject_row:
+        print("Subject not found!")
+        return
+    subject_id = subject_row[0]
+    
+    marks = input("Enter Marks: ")
+    cursor.execute("""
+        INSERT INTO marks (student_id, subject_id, marks)
+        VALUES (?, ?, ?)
+        ON CONFLICT(student_id, subject_id) DO UPDATE SET marks = excluded.marks
+    """, (roll, subject_id, marks))
+    conn.commit()
+    print("Marks added/updated successfully!")
+    
+    conn.close()
 
-    def student_view(self):
-        """Allow students to view their marks."""
-        roll_no = int(input("Enter your roll number: "))
-        self.cursor.execute('''
-        SELECT name, math, science, english, total
-        FROM students WHERE roll_no = ?
-        ''', (roll_no,))
-       
-        row = self.cursor.fetchone()
-        if row:
-            print(f"\nStudent: {row[0]}")
-            print(f"Math: {row[1]}")
-            print(f"Science: {row[2]}")
-            print(f"English: {row[3]}")
-            print(f"Total: {row[4]}")
+def display_marks():
+    conn = sqlite3.connect('marks.db')
+    cursor = conn.cursor()
+    
+    cursor.execute("""
+        SELECT s.roll_number, s.name, sub.name as subject, m.marks
+        FROM students s
+        JOIN marks m ON s.roll_number = m.student_id
+        JOIN subjects sub ON m.subject_id = sub.id
+        ORDER BY s.roll_number
+    """)
+    rows = cursor.fetchall()
+    
+    student_data = {}
+    for row in rows:
+        roll_number, name, subject, marks = row
+        if roll_number not in student_data:
+            student_data[roll_number] = {'name': name, 'subjects': [], 'total_marks': 0}
+        student_data[roll_number]['subjects'].append((subject, marks))
+        student_data[roll_number]['total_marks'] += marks
+    
+    print("\nStudent Marks Sorted by Total Marks:")
+    sorted_students = sorted(student_data.items(), key=lambda x: x[1]['total_marks'], reverse=True)
+    
+    for roll_number, data in sorted_students:
+        print(f"\nRoll No: {roll_number} | Name: {data['name']}")
+        for subject, marks in data['subjects']:
+            print(f"  {subject}: {marks}")
+        print(f"Total Marks: {data['total_marks']}")
+    
+    conn.close()
+
+def main():
+    initialize_database()
+    while True:
+        print("\nMarks Management System:")
+        print("1. Add Student")
+        print("2. Add Subject")
+        print("3. Add or Update Marks")
+        print("4. Display Marks")
+        print("5. Exit")
+        
+        choice = input("Enter choice: ")
+        if choice == '1':
+            add_student()
+        elif choice == '2':
+            add_subject()
+        elif choice == '3':
+            add_or_update_marks()
+        elif choice == '4':
+            display_marks()
+        elif choice == '5':
+            break
         else:
-            print("Student not found!")
-
-    def close_connection(self):
-        """Close the connection to the database."""
-        self.connection.close()
-
+            print("Invalid choice!")
 
 if __name__ == "__main__":
-    system = MarksManagementSystem()
+    main()
 
-    # Teacher interaction
-    while True:
-        print("\n--- Teacher Menu ---")
-        print("1. Update marks for a subject")
-        print("2. View sorted student results")
-        print("3. Exit")
-        option = input("Select an option: ")
-       
-        if option == "1":
-            system.teacher_update()
-        elif option == "2":
-            system.view_results()
-        elif option == "3":
-            break
-        else:
-            print("Invalid option. Try again.")
-   
-    # Student interaction
-    while True:
-        print("\n--- Student Menu ---")
-        print("1. View my marks")
-        print("2. Exit")
-        option = input("Select an option: ")
-       
-        if option == "1":
-            system.student_view()
-        elif option == "2":
-            break
-        else:
-            print("Invalid option. Try again.")
-
-    # Close the database connection
-    system.close_connection()
