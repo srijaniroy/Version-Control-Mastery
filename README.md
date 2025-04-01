@@ -4,7 +4,7 @@
 ### Contributors:
 - **[Srijani](https://github.com/srijaniroy)**: Contributed to Q3 (Entirely) and provided 10 data entries for Q1, Q2, and Q3.
 
-- **[Sayak](https://github.com/Sayak-77-sys)**: Contributed to Q2.  
+- **[Sayak](https://github.com/Sayak-77-sys)**: Contributed to Q2 and provided 10 data entries for Q1, Q2 and Q3.  
   
 - **[Manav](https://github.com/Lord-Crow)**: Contributed to Q1 and provided 10 data entries for Q1, Q2 and Q3.  
   
