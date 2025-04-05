@@ -51,11 +51,11 @@
 1. **Clone the repository**:  
    Run the following command in your terminal or command prompt to clone the project repository:
    ```bash
-   git clone https://github.com/srijaniroy/SE_Lab_2025_A1_5_Repo.git
+   git clone https://github.com/srijaniroy/SE_Lab_2025_A1_05_Repo.git
    ```
    
 
-2. **Ensure you have Python and SQLite installed**:  
+2. **Ensure you have Python and SQLite installed.**  
    
 
 3. **Run the Python script**:  
