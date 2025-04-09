@@ -26,7 +26,7 @@ A simple task management system built using Python and SQLite for storing tasks 
 1. Clone the repository:
    ```bash
    git clone https://github.com/srijaniroy/Version-Control-Mastery.git
-   cd cd '.\Task Management CLI Tool\'
+   cd '.\Task Management CLI Tool\'
    ```
 
 2. Install the required dependencies:
