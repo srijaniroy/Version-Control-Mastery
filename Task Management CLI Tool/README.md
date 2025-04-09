@@ -25,8 +25,8 @@ A simple task management system built using Python and SQLite for storing tasks 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/srijaniroy/SE_Lab_2025_A1_5.git
-   cd Q3
+   git clone https://github.com/srijaniroy/Version-Control-Mastery.git
+   cd cd '.\Task Management CLI Tool\'
    ```
 
 2. Install the required dependencies:
@@ -50,9 +50,5 @@ The application uses SQLite with the following tables:
 
 ## Assigned to
 
-Srijani Roy (002311001026)
+[Srijani Roy](https://github.com/srijaniroy)
 
-## Collaborators
-
-1. Manav Saha (002311001024)
-2. Sayak Sasmal (002311001031)
