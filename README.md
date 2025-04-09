@@ -1,19 +1,19 @@
-# SE_Lab_2025_A1_5
-## SE Assignment on Version Control using Git
+# Version Control Mastery
+## This repository contains the work for a Software Engineering assignment focused on demonstrating a strong understanding of version control principles and effective Git workflows.
 
 ### Contributors:
 - **[Srijani](https://github.com/srijaniroy)**: Contributed to Q3 (Entirely) and provided 10 data entries for Q1, Q2, and Q3.
 
-- **[Sayak](https://github.com/Sayak-77-sys)**: Contributed to Q2 and provided 10 data entries for Q1, Q2 and Q3.  
+- **Sayak**: Contributed to Q2 and provided 10 data entries for Q1, Q2 and Q3.  
   
-- **[Manav](https://github.com/Lord-Crow)**: Contributed to Q1 and provided 10 data entries for Q1, Q2 and Q3.  
+- **Manav**: Contributed to Q1 and provided 10 data entries for Q1, Q2 and Q3.  
   
 
 
 
 ### Question-wise Breakdown:
 
-#### **Q1: Inventory Management System with Git ([Manav](https://github.com/Lord-Crow))**
+#### **Q1: Inventory Management System with Git (Manav)**
 - **Objective**: Design a system to manage products for a store. Customers can make purchases, and sellers can update the list of products.
 - **Features**:
   - Added, updated, and deleted products using SQLite.
@@ -22,7 +22,7 @@
   - Purchase history is tracked for customers.
 - **Git usage**: Version control was used to maintain a history of changes to the inventory and purchase system.
   
-#### **Q2: Marks Management System with Git ([Sayak](https://github.com/Sayak-77-sys))**
+#### **Q2: Marks Management System with Git (Sayak)**
 - **Objective**: Develop a Student Marks Management System where a central database stores students' marks for different subjects.
 - **Features**:
   - Teachers can add, edit, and update marks for individual students in their subject.
@@ -51,7 +51,7 @@
 1. **Clone the repository**:  
    Run the following command in your terminal or command prompt to clone the project repository:
    ```bash
-   git clone https://github.com/srijaniroy/SE_Lab_2025_A1_05_Repo.git
+   git clone https://github.com/srijaniroy/Version-Control-Mastery.git
    ```
    
 
