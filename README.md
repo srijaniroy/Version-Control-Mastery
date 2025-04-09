@@ -1,5 +1,5 @@
 # Version Control Mastery
-## This repository contains the work for a Software Engineering assignment focused on demonstrating a strong understanding of version control principles and effective Git workflows.
+#### This repository contains the work for a Software Engineering assignment focused on demonstrating a strong understanding of version control principles and effective Git workflows.
 
 ### Contributors:
 - **[Srijani](https://github.com/srijaniroy)**: Contributed to Q3 (Entirely) and provided 10 data entries for Q1, Q2, and Q3.
