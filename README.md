@@ -11,7 +11,7 @@
 
 ### 📌 Question-wise Breakdown:
 
-#### **🔹 Q1: Inventory Management System with Git (👨‍💻 Manav)**  
+#### **🔹 Q1: Inventory Management System with Git (Manav)**  
 - **🎯 Objective**: Design a system to manage products for a store. Customers can make purchases, and sellers can update the list of products.
 - **✨ Features**:
   - ➕ Add, ✏️ update, and ❌ delete products using **SQLite**.
@@ -22,7 +22,7 @@
 
 ---
 
-#### **🔹 Q2: Marks Management System with Git (📘 Sayak)**  
+#### **🔹 Q2: Marks Management System with Git (Sayak)**  
 - **🎯 Objective**: Develop a **Student Marks Management System** with a central database for student scores across subjects.
 - **✨ Features**:
   - 👨‍🏫 Teachers can add, edit, and update **marks** for their subjects.
@@ -32,14 +32,14 @@
 
 ---
 
-#### **🔹 Q3: Task Management CLI Tool with Git ([🧑‍💻 Srijani](https://github.com/srijaniroy))**  
+#### **🔹 Q3: Task Management CLI Tool with Git ([Srijani](https://github.com/srijaniroy))**  
 - **🎯 Objective**: Build a **CLI-based Task Manager** to handle daily task operations.
 - **✨ Features**:
   - ➕ Add, ✏️ edit, ✅ complete, and ❌ delete tasks.
   - ⏱️ Each task includes a timestamp for version tracking.
   - 📜 Full version control to **log task history** and modifications.
 - **🔧 Git Usage**: Maintains complete **version history** of tasks and tracks changes over time.
-- **🆕 Additional Work**: Srijani contributed **10 test entries** for Q1 and Q2 as well for completeness.
+- **➕ Additional Work**: Srijani contributed **10 test entries** for Q1 and Q2 as well for completeness.
 
 ---
 
