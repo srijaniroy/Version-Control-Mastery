@@ -44,7 +44,7 @@
 ---
 
 ### 📝 Additional Notes:
-- 🔗 This repository showcases **team collaboration** through Git.
+- 🤝 This repository showcases **team collaboration** through Git.
 - 📚 Work was **efficiently divided**, with each member focusing on a different module.
 - 📈 Fully version-controlled and ready for **further enhancements**.
 
