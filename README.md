@@ -71,4 +71,4 @@
 
 ### 🏁 Final Note:
 
-✅ **Score Achieved: 10/10 — Full marks awarded for implementation, collaboration, and version control practices.**
+✅ **Score Achieved: 20/20 — Full marks awarded for implementation, collaboration, and version control practices.**
